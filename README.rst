@@ -2,9 +2,9 @@ Tracery for Godot
 =================
 
 This is a port of `Kate Compton <http://www.galaxykate.com/>`_'s text generation library `Tracery <http://tracery.io/>`_ to 
-`Godot <https://godotengine.org/>`.
+`Godot <https://godotengine.org/>`_.
 
-This port is based on the `Python port of Tracery <https://github.com/aparrish/pytracery>` by `Allison Parrish <http://www.decontextualize.com/>`_.
+This port is based on the `Python port of Tracery <https://github.com/aparrish/pytracery>`_ by `Allison Parrish <http://www.decontextualize.com/>`_.
 
 
 Installation & Usage
@@ -58,32 +58,35 @@ Example 4 in the project (shown here, see the code in ```example.gd```) demonstr
 data and then getting them back from the symbols in the grammar:
 
 ::
-	#Saving data
-	var example4 = {
-	  "name": ["Arjun","Yuuma","Darcy","Mia","Chiaki","Izzi","Azra","Lina"],
-	  "animal": ["unicorn","raven","sparrow","scorpion","coyote","eagle","owl","lizard","zebra","duck","kitten"],
-	  "mood": ["vexed","indignant","impassioned","wistful","astute","courteous"],
-	  "story": ["#hero# traveled with her pet #heroPet#.  #hero# was never #mood#, for the #heroPet# was always too #mood#."],
-	  "origin": ["#[hero:#name#][heroPet:#animal#]story#"],
-	}
-	var grammar4 = self.tracery('#origin#', example4)
-	print("Stored values >>")
-	for name in grammar4.symbols.keys():
-		print("    " + name + ' = ' + grammar4.symbols[name].selected_value)
+
+   #Saving data
+   var example4 = {
+     "name": ["Arjun","Yuuma","Darcy","Mia","Chiaki","Izzi","Azra","Lina"],
+     "animal": ["unicorn","raven","sparrow","scorpion","coyote","eagle","owl","lizard","zebra","duck","kitten"],
+     "mood": ["vexed","indignant","impassioned","wistful","astute","courteous"],
+     "story": ["#hero# traveled with her pet #heroPet#.  #hero# was never #mood#, for the #heroPet# was always too #mood#."],
+     "origin": ["#[hero:#name#][heroPet:#animal#]story#"],
+     }
+
+     var grammar4 = self.tracery('#origin#', example4)
+     print("Stored values >>")
+     for name in grammar4.symbols.keys():
+          print("    " + name + ' = ' + grammar4.symbols[name].selected_value)
 
 
 Generates text like:
 
 ::
-       Lina traveled with her pet coyote.  Lina was never vexed, for the coyote was always too impassioned.
-       Stored values >>
-            name = Lina
-            animal = coyote
-            mood = impassioned
-            story = #hero# traveled with her pet #heroPet#.  #hero# was never #mood#, for the #heroPet# was always too #mood#.
-            origin = #[hero:#name#][heroPet:#animal#]story#
-            hero = Lina
-            heroPet = coyote
+
+     Lina traveled with her pet coyote.  Lina was never vexed, for the coyote was always too impassioned.
+     Stored values >>
+          name = Lina
+          animal = coyote
+          mood = impassioned
+          story = #hero# traveled with her pet #heroPet#.  #hero# was never #mood#, for the #heroPet# was always too #mood#.
+          origin = #[hero:#name#][heroPet:#animal#]story#
+          hero = Lina
+          heroPet = coyote
 
 License
 -------
